@@ -4,6 +4,7 @@ channels:
   - bioconda
   - conda-forge
 dependencies:
+  - fastp
   - trimmomatic
   - fastq
   - STAR
