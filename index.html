@@ -47,7 +47,27 @@
     </ul>
   </div>
 
+<pre style="display:none;"><code id="code-download"></code></pre>
 
+<script>
+async function loadCode(path, elId) {
+  const pre = document.getElementById(elId).parentElement;
+  if (pre.style.display === 'block') { pre.style.display = 'none'; return; }
+  try {
+    const res = await fetch(path, {cache:'no-cache'});
+    if (!res.ok) throw new Error(res.status);
+    const txt = await res.text();
+    const code = document.getElementById(elId);
+    code.textContent = txt;
+    pre.style.display = 'block';      // show the <pre>
+    if (window.hljs) hljs.highlightElement(code); // optional syntax highlight
+  } catch (e) {
+    document.getElementById(elId).textContent = 'Failed to load ' + path + ': ' + e;
+    pre.style.display = 'block';
+  }
+}
+</script>
+  
   <div class="box">
     <strong>Results</strong>
     <ul>
