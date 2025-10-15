@@ -1,0 +1,15 @@
+name: DEseq
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+dependencies:
+  - trimmomatic
+  - fastq
+  - STAR
+  - samtools
+  - r-base
+  - multiqc
+  - subread
+  - R:
+      - r-deseq2
