@@ -24,10 +24,10 @@
       This project implements an upstream RNA-seq workflow using Nextflow DSL2. It automates the entire analysis pipeline, including FastQC, trimming, alignment, featureCounts, and MultiQC summarization.
       The workflow processes the dataset SRR13978643 (Saccharomyces cerevisiae) and includes all necessary setup steps for reproducibility:
       <ul>
-    <li>Creating the environment with conda env create --file setup.yml</li>
-    <li>Activating the environment using conda activate DEseq</li>
-    <li>Downloading required tools and data with Rscript download.R</li>
-    <li>Running the full analysis using nextflow run main.nf -with-conda</li>
+    <li>Creating the environment with<pre><code>conda env create --file setup.yml</code></pre></li>
+    <li>Activating the environment using<pre><code>conda activate DEseq</code></pre></li>
+    <li>Downloading required tools and data with<pre><code>Rscript download.R</code></pre></li>
+    <li>Running the full analysis using nextflow<pre><code>run main.nf -with-conda</code></pre></li>
      </ul>
       This project demonstrates a fully automated, reproducible RNA-seq analysis pipeline, from environment setup to result visualization.
     </p>
