@@ -37,14 +37,23 @@
     </p>
   </div>
   <div class="box">
-    <strong>Code</strong>
+    <h2>Code</h2>
     <ul>
       <li><a href="#" onclick="loadCode('./download.R','code-download'); return false;">Environment & Tools (setup.yml & samtools.yml)</a></li>
       <li><a href="https://github.com/fchen-code/Upstream-Nextflow-Analysis/blob/main/download.R">Data (download.R)</a></li>
       <li><a href="./name3">Nextflow script (main.nf)</a></li>
     </ul>
   </div>
-
+  <div class="box">
+    <h2>Results</h2>
+    <ul>
+      <li><a href="./results/fastqc/index.html">FastQC report</a></li>
+      <li><a href="./results/trimming/summary.html">Trimming summary</a></li>
+      <li><a href="./results/alignment/metrics.html">Alignment metrics</a></li>
+      <li><a href="./results/featurecounts/counts.txt">featureCounts (counts.txt)</a></li>
+      <li><a href="./multiqc/index.html">MultiQC (combined QC)</a></li>
+    </ul>
+  </div>
 <pre style="display:none;"><code id="code-download"></code></pre>
 
 <script>
@@ -65,16 +74,6 @@ async function loadCode(path, elId) {
   }
 }
 </script>
-  <div class="box">
-    <strong>Results</strong>
-    <ul>
-      <li><a href="./results/fastqc/index.html">FastQC report</a></li>
-      <li><a href="./results/trimming/summary.html">Trimming summary</a></li>
-      <li><a href="./results/alignment/metrics.html">Alignment metrics</a></li>
-      <li><a href="./results/featurecounts/counts.txt">featureCounts (counts.txt)</a></li>
-      <li><a href="./multiqc/index.html">MultiQC (combined QC)</a></li>
-    </ul>
-  </div>
-
+  
 </body>
 </html>
