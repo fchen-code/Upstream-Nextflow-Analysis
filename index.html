@@ -37,19 +37,7 @@
     </p>
   </div>
 
-  <div class="box">
-    <strong>Code</strong>
-    <ul>
-      <li><a href="#" onclick="loadCode('./download.R','code-download'); return false;">
-        Environment & Tools (setup.yml & samtools.yml)</a></li>
-      <li><a href="https://github.com/fchen-code/Upstream-Nextflow-Analysis/blob/main/download.R">Data (download.R)</a></li>
-      <li><a href="./name3">Nextflow script (main.nf)</a></li>
-    </ul>
-  </div>
-
-<pre style="display:none;"><code id="code-download"></code></pre>
-
-<script>
+  <script>
 async function loadCode(path, elId) {
   const pre = document.getElementById(elId).parentElement;
   if (pre.style.display === 'block') { pre.style.display = 'none'; return; }
@@ -67,6 +55,19 @@ async function loadCode(path, elId) {
   }
 }
 </script>
+  
+  <div class="box">
+    <strong>Code</strong>
+    <ul>
+      <li><a href="#" onclick="loadCode('./download.R','code-download'); return false;">
+        Environment & Tools (setup.yml & samtools.yml)</a></li>
+      <li><a href="https://github.com/fchen-code/Upstream-Nextflow-Analysis/blob/main/download.R">Data (download.R)</a></li>
+      <li><a href="./name3">Nextflow script (main.nf)</a></li>
+    </ul>
+  </div>
+
+<pre style="display:none;"><code id="code-download"></code></pre>
+
   
   <div class="box">
     <strong>Results</strong>
