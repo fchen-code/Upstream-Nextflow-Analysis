@@ -1,119 +1,52 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>fchen-code · RNA-seq Upstream (Nextflow)</title>
+  <title>RNA-seq Upstream Pipeline (Nextflow)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Simple styles -->
   <style>
-    :root { --bg:#0b1020; --fg:#e6e6e6; }
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:2rem;line-height:1.6;max-width:1100px}
-    h1{margin:0 0 .25rem} .muted{color:#6b7280;margin:0 0 1.25rem}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:1rem 0 2rem}
-    .card{border:1px solid #e5e7eb;border-radius:12px;padding:16px}
-    .btn{display:inline-block;padding:.5rem .75rem;border:1px solid #d1d5db;border-radius:.5rem;text-decoration:none;margin-right:.5rem}
-    pre{background:var(--bg);color:white(--fg);padding:14px;border-radius:10px;overflow:auto}
-    code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.95em}
-    .codeblock{margin:1.25rem 0}
-    .label{display:inline-block;font-size:.8rem;background:#eef;border:1px solid #ccd;padding:.15rem .4rem;border-radius:.4rem;margin:0 .5rem .5rem 0}
-    img.preview{width:100%;border-radius:10px;border:1px solid #e5e7eb}
-    footer{margin:2rem 0;color:#6b7280}
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 2rem; line-height: 1.6; max-width: 900px; }
+    h1 { margin: 0 0 .75rem; }
+    .box { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; margin: 1rem 0; }
+    ul { margin: .5rem 0 0 1.2rem; }
+    a { text-decoration: none; }
   </style>
-  <!-- highlight.js (client-side syntax highlighting) -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script>window.addEventListener('DOMContentLoaded', () => hljs.highlightAll());</script>
 </head>
 <body>
-  <h1>RNA-seq Upstream Pipeline (Nextflow DSL2)</h1>
-  <p class="muted">QC → trimming → alignment → counts → MultiQC · by Feng Chen</p>
 
-  <!-- Quick intro & links -->
-  <div class="grid">
-    <div class="card">
-      <h3>About</h3>
-      <p>This project runs the upstream RNA-seq workflow using Nextflow. It includes FastQC, trimming, alignment, featureCounts, and a MultiQC summary. Below you can browse the code and open sample results directly in the browser.</p>
-      <div>
-        <span class="label">Nextflow</span>
-        <span class="label">RNA-seq</span>
-        <span class="label">R</span>
-        <span class="label">Reproducible</span>
-      </div>
-    </div>
+  <!-- Title -->
+  <h1>RNA-seq Upstream Pipeline (Nextflow)</h1>
 
-    <div class="card">
-      <h3>Live artifacts</h3>
-      <ul>
-        <li><a class="btn" href="./multiqc/index.html">Open MultiQC ▶</a> (if present)</li>
-        <li><a class="btn" href="./dag.png">View DAG</a> (if present)</li>
-        <li><a class="btn" href="https://github.com/YOUR-USERNAME/fchen-code">GitHub Repo</a></li>
-      </ul>
-      <p style="margin:.5rem 0 0;font-size:.9rem">Tip: replace <code>YOUR-USERNAME</code> above with your actual username.</p>
-    </div>
-
-    <div class="card">
-      <h3>Run (example)</h3>
-      <pre><code># env
-conda env create -f setup.yml
-
-# run (toy data)
-nextflow run main.nf \
-  --reads 'data/*_{1,2}.fastq.gz' \
-  --outdir results
-
-# make DAG
-nextflow run main.nf -with-dag dag.png
-</code></pre>
-    </div>
+  <!-- Intro -->
+  <div class="box">
+    <strong>Introduction</strong>
+    <p>
+      Briefly describe the assignment here (what dataset, goals, and what the pipeline does:
+      FastQC → trimming → alignment → featureCounts → MultiQC). Replace this text with your own summary.
+    </p>
   </div>
 
-  <!-- Code viewers -->
-  <h2>Code (inline viewers)</h2>
-
-  <div class="codeblock">
-    <h3>main.nf</h3>
-    <pre><code id="code-nf" class="language-groovy">Loading main.nf…</code></pre>
+  <!-- Code links (rename targets to your real files) -->
+  <div class="box">
+    <strong>Code</strong>
+    <ul>
+      <li><a href="./name1">name1</a> <!-- e.g., main.nf --></li>
+      <li><a href="./name2">name2</a> <!-- e.g., download.R --></li>
+      <li><a href="./name3">name3</a> <!-- e.g., setup.yml --></li>
+    </ul>
   </div>
 
-  <div class="codeblock">
-    <h3>download.R</h3>
-    <pre><code id="code-r" class="language-r">Loading download.R…</code></pre>
+  <!-- Results: one link per step -->
+  <div class="box">
+    <strong>Results</strong>
+    <ul>
+      <li><a href="./results/fastqc/index.html">FastQC report</a></li>
+      <li><a href="./results/trimming/summary.html">Trimming summary</a></li>
+      <li><a href="./results/alignment/metrics.html">Alignment metrics</a></li>
+      <li><a href="./results/featurecounts/counts.txt">featureCounts (counts.txt)</a></li>
+      <li><a href="./multiqc/index.html">MultiQC (combined QC)</a></li>
+    </ul>
   </div>
 
-  <div class="codeblock">
-    <h3>setup.yml</h3>
-    <pre><code id="code-yml" class="language-yaml">Loading setup.yml…</code></pre>
-  </div>
-
-  <script>
-    // Fetch and display local files (served by Pages) into code blocks
-    async function loadCode(path, elId) {
-      try {
-        const res = await fetch(path, { cache: "no-cache" });
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        const txt = await res.text();
-        const el = document.getElementById(elId);
-        el.textContent = txt;         // put raw text
-        hljs.highlightElement(el);    // then highlight
-      } catch (e) {
-        document.getElementById(elId).textContent = "Failed to load " + path + ": " + e;
-      }
-    }
-    loadCode("./main.nf", "code-nf");
-    loadCode("./download.R", "code-r");
-    loadCode("./setup.yml", "code-yml");
-  </script>
-
-  <!-- Optional: preview images -->
-  <h2>Selected previews</h2>
-  <p class="muted">If you add small PNGs/JPGs under <code>images/</code>, link them here:</p>
-  <ul>
-    <li><a href="./images/fastqc_per_base.png">Per-base quality</a></li>
-    <li><a href="./images/trimming_summary.png">Trimming summary</a></li>
-    <li><a href="./images/alignment_rate.png">Alignment rate</a></li>
-  </ul>
-
-  <footer>© Feng Chen · <a href="https://github.com/YOUR-USERNAME/fchen-code">Source</a></footer>
 </body>
 </html>
