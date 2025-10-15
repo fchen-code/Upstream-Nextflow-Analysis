@@ -23,7 +23,7 @@
 </style>
 
   <div class="box">
-    <h2>Introduction</h2>
+    <h2>Introduction1</h2>
     <p>
       This project implements an upstream RNA-seq workflow using Nextflow DSL2. It automates the entire analysis pipeline, including FastQC, trimming, alignment, featureCounts, and MultiQC summarization.
       The workflow processes the dataset SRR13978643 (Saccharomyces cerevisiae) and includes all necessary setup steps for reproducibility:
@@ -38,29 +38,42 @@
   </div>
 
   <script>
-async function loadCode(path, elId) {
-  const pre = document.getElementById(elId).parentElement;
-  if (pre.style.display === 'block') { pre.style.display = 'none'; return; }
+async function viewCode(path, codeId, lang) {
+  const codeEl = document.getElementById(codeId);
+  const preEl  = codeEl.parentElement;     // the <pre>
+  // toggle if already visible
+  if (preEl.style.display === 'block') { preEl.style.display = 'none'; return; }
+
   try {
-    const res = await fetch(path, {cache:'no-cache'});
-    if (!res.ok) throw new Error(res.status);
+    const res = await fetch(path, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     const txt = await res.text();
-    const code = document.getElementById(elId);
-    code.textContent = txt;
-    pre.style.display = 'block';      // show the <pre>
-    if (window.hljs) hljs.highlightElement(code); // optional syntax highlight
+    codeEl.textContent = txt;
+    if (lang) codeEl.className = 'language-' + lang;
+    preEl.style.display = 'block';
+    if (window.hljs) hljs.highlightElement(codeEl);
   } catch (e) {
-    document.getElementById(elId).textContent = 'Failed to load ' + path + ': ' + e;
-    pre.style.display = 'block';
+    codeEl.textContent = 'Failed to load ' + path + ': ' + e.message;
+    preEl.style.display = 'block';
   }
 }
 </script>
+
+<style>
   
   <div class="box">
     <strong>Code</strong>
     <ul>
-      <li><a href="#" onclick="loadCode('./download.R','code-download'); return false;">
-        Environment & Tools (setup.yml & samtools.yml)</a></li>
+      <li>
+    <strong>download.R</strong>
+    <!-- View inline -->
+    <a href="#" class="btn" onclick="viewCode('./download.R','code-download','r');return false;">View</a>
+    <!-- Download file -->
+    <a class="btn" href="./download.R" download>Download</a>
+  </li>
+  <pre id="pre-download" class="viewer" style="display:none;">
+    <code id="code-download" class="language-r">Loading…</code>
+  </pre>
       <li><a href="https://github.com/fchen-code/Upstream-Nextflow-Analysis/blob/main/download.R">Data (download.R)</a></li>
       <li><a href="./name3">Nextflow script (main.nf)</a></li>
     </ul>
